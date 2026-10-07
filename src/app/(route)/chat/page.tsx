@@ -1,7 +1,7 @@
 // 로그인한 사용자 이름으로 실시간 채팅 메시지를 주고받습니다.
 "use client";
 
-import {  useEffect,  useRef,  useState} from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import {  useSearchParams } from "next/navigation";
 import Cube from "@/app/components/Cube";
 import styles from "./page.module.scss";
@@ -12,7 +12,7 @@ type ChatMessage = {  name: string;
 };
 
 
-const ChatPage = () => {
+const ChatPagea = () => {
   const searchParams =    useSearchParams();
   const socketRef =  useRef<WebSocket | null>( null );
   // WebSocket는 브라우져 기본기능이라 임포트 하지 않아도 됨.
@@ -186,6 +186,15 @@ const ChatPage = () => {
 
   );
 
+};
+
+
+const ChatPage = () => {
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <ChatPagea />
+    </Suspense>
+  );
 };
 
 export default ChatPage;
