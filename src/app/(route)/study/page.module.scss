@@ -1,0 +1,174 @@
+// study 화면의 배치·색상·크기를 정합니다.
+.main {
+  width: 900px;
+  max-width: calc(100% - 40px);
+
+  margin: 0 auto;
+
+  padding: 70px 0 100px;
+}
+
+.title {
+  margin-bottom: 45px;
+
+  text-align: center;
+
+  p {
+    margin-bottom: 10px;
+
+    color: #735fd8;
+
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  span {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #777;
+  }
+}
+
+.studyBox {
+  padding: 40px;
+
+  background: white;
+
+  border: 1px solid #e5e4ec;
+  border-radius: 16px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.modeList {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  button {
+    min-height: 110px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    background: #f8f7fc;
+
+    border: 2px solid transparent;
+    border-radius: 10px;
+
+    strong {
+      display: block;
+
+      margin-bottom: 8px;
+    }
+
+    span {
+      color: #777;
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      border-color: #bfb6ef;
+    }
+
+    &.active {
+      border-color: #745fde;
+
+      background: #f1eeff;
+    }
+  }
+}
+
+.inputBox {
+  margin-top: 35px;
+
+  label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+
+    padding: 18px;
+
+    resize: none;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+
+    &:focus {
+      border-color: #745fde;
+    }
+  }
+
+  button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #6954d9;
+
+    color: white;
+
+    font-weight: 700;
+
+    &:disabled {
+      background: #aaa;
+    }
+  }
+}
+
+.answerBox {
+  margin-top: 30px;
+
+  padding: 35px;
+
+  background: white;
+
+  border: 1px solid #e5e4ec;
+  border-radius: 16px;
+
+  h2 {
+    margin-bottom: 20px;
+
+    color: #604ccc;
+  }
+
+  p {
+    white-space: pre-wrap;
+
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 700px) {
+  .modeList {
+    grid-template-columns: 1fr;
+  }
+}

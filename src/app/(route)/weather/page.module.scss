@@ -1,0 +1,151 @@
+// weather 화면의 배치·색상·크기를 정합니다.
+.main {
+  width: 700px;
+  max-width: calc(100% - 40px);
+
+  margin: 0 auto;
+
+  padding: 70px 0;
+}
+
+.title {
+  margin-bottom: 40px;
+
+  text-align: center;
+
+  p {
+    margin-bottom: 10px;
+
+    color: #4776b6;
+
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  span {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #777;
+  }
+}
+
+.searchBox {
+  display: flex;
+
+  gap: 10px;
+
+  input {
+    flex: 1;
+
+    padding: 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+
+    &:focus {
+      border-color: #4776b6;
+    }
+  }
+
+  button {
+    padding: 0 25px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #4776b6;
+
+    color: white;
+
+    font-weight: 700;
+
+    &:disabled {
+      background: #aaa;
+    }
+  }
+}
+
+.weatherBox {
+  margin-top: 30px;
+
+  padding: 45px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #e0e7ef;
+  border-radius: 16px;
+
+  h2 {
+    font-size: 28px;
+  }
+}
+
+.description {
+  margin-top: 8px;
+
+  color: #777;
+}
+
+.temp {
+  margin: 30px 0;
+
+  color: #4776b6;
+
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.infoList {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+
+  div {
+    padding: 20px;
+
+    background: #f4f8fd;
+
+    border-radius: 10px;
+
+    span {
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #777;
+
+      font-size: 13px;
+    }
+
+    strong {
+      font-size: 18px;
+    }
+  }
+}
+
+.error {
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: #d34b4b;
+}
+
+@media (max-width: 600px) {
+  .infoList {
+    grid-template-columns: 1fr;
+  }
+}
