@@ -1,8 +1,7 @@
-
 "use client";
 
 // [기존] React 상태 관리
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // [기존] 챗봇 스타일
 import styles from "./GuideChatbot.module.scss";
@@ -36,7 +35,15 @@ const GuideChatbot = () => {
       content: "안녕하세요! 홈페이지 이용 방법을 안내해 드립니다."
     }
   ]);
+const messagesRef = useRef<HTMLDivElement>(null);
 
+// 질문이나 답변이 추가되면 맨 아래로 이동
+useEffect(() => {
+  if (messagesRef.current) {
+    messagesRef.current.scrollTop =
+      messagesRef.current.scrollHeight;
+  }
+}, [messages, loading]);
 
   // [추가] 질문 전송 함수
   const handleSend = async () => {
@@ -142,7 +149,7 @@ const GuideChatbot = () => {
           {/* [수정] 채팅 메시지 출력 영역 */}
           {/* 기존: 고정된 인사말 하나만 출력 */}
           {/* 변경: messages 배열의 모든 질문과 답변 출력 */}
-          <div className={styles.messages}>
+          <div className={styles.messages} ref={messagesRef}>
 
             {/* [추가] map으로 메시지 배열 반복 출력 */}
             {messages.map((message, index) => (
